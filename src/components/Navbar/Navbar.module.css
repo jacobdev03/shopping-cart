@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  align-items: center;
+}
+
+.nav h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav_links {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_links a {
+  margin: 0 10px;
+}
