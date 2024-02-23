@@ -1,0 +1,17 @@
+.cartItems {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 0;
+  max-width: 800px;
+  grid-column: span 8;
+}
+
+.cartContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 60px;
+}
+
+.checkout {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  grid-column: span 4;
+}
