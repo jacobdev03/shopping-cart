@@ -3,8 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './Products.module.css';
 
-const Products = () => {
-  const [cartItems, setCartItems] = useState([]);
+const Products = ({ cartItems, setCartItems }) => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,11 +25,19 @@ const Products = () => {
   if (loading) return <p>Loading...</p>;
 
   const handleAdd = (event) => {
-    setCartItems([...cartItems, event.currentTarget.parentNode.title]);
+    const quantity = parseInt(event.currentTarget.parentNode.children.quantity.value);
+    const itemToAdd = products.find(
+      (product) => product.title === event.currentTarget.parentNode.title
+    );
+    for (let i = 0; i < quantity; i++) {
+      setCartItems((prevCartItems) => [...prevCartItems, itemToAdd]);
+    }
   };
 
   const handleDelete = (event) => {
-    const itemIndex = cartItems.indexOf(event.currentTarget.parentNode.title);
+    const itemIndex = cartItems.findIndex(
+      (item) => item.title === event.currentTarget.parentNode.title
+    );
     setCartItems(cartItems.filter((item, i) => i != itemIndex));
   };
 
